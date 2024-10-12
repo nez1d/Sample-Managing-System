@@ -1,0 +1,68 @@
+﻿<Page x:Class="SampleApplicatoin.WPF.Pages.Auth.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SampleApplicatoin.WPF.Pages.Auth"
+      mc:Ignorable="d" 
+      d:DesignHeight="440" d:DesignWidth="500"
+      Title="RegisterPage">
+
+    <Grid>
+        <Border Background="#fff" Grid.Column="1"
+            CornerRadius="0 10 10 0">
+            <StackPanel >
+                <!-- Title Section -->
+                <TextBlock Style="{StaticResource titleText}" 
+               Text="Register" Foreground="#000"
+               Margin="15"/>
+
+                
+                <!-- Form Section -->
+                <Grid>
+                    <TextBlock Style="{StaticResource otherText}" 
+                           Text="BASIC INFORMATION" Foreground="#000"
+                           Margin="75 15 75 0"/>
+                    <StackPanel Margin="0 15 0 0">
+                        <TextBlock Style="{StaticResource otherText}" 
+                               Text="Login" Foreground="#000"
+                               Margin="75 40 75 5" FontWeight="SemiBold"
+                               FontSize="16"/>
+
+                        <TextBox x:Name="loginTextBox" Height="30"
+                             Padding="10 3" FontSize="16"
+                             Margin="75 0 75 0" FontWeight="Regular"/>
+
+                        <TextBlock Style="{StaticResource otherText}" 
+                               Text="Password" Foreground="#000"
+                               Margin="75 10 75 5" FontWeight="SemiBold"
+                               FontSize="16"/>
+
+                        <TextBox x:Name="passwordTextBox" Height="30"
+                             Padding="10 3" FontSize="16"
+                             Margin="75 0 75 0" FontWeight="Regular"/>
+
+
+                        <TextBlock Style="{StaticResource otherText}" 
+                                   Text="Confirm Password" Foreground="#000"
+                                   Margin="75 10 75 5" FontWeight="SemiBold"
+                                   FontSize="16"/>
+
+                        <TextBox x:Name="confirmPasswordTextBox" Height="30"
+                             Padding="10 3" FontSize="16"
+                             Margin="75 0 75 0" FontWeight="Regular"/>
+
+                       
+                        <Button Content="Sign in" x:Name="loginBtn" 
+                            Style="{StaticResource button}"
+                            Margin="0 25"/>
+                        <TextBlock Text="Already have an account?"
+                               FontSize="14" FontWeight="Bold"
+                               TextAlignment="Center" 
+                               Foreground="#494949"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

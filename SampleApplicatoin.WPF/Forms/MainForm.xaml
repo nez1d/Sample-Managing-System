@@ -1,0 +1,248 @@
+﻿<Window x:Class="SampleApplicatoin.WPF.Forms.MainForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleApplicatoin.WPF.Forms"
+        mc:Ignorable="d"
+        Title="MainForm" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#fff" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top menu -->
+        <Border
+            Grid.Column="0" BorderBrush="#909090">
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                <Button x:Name="closeBtn" Click="closeBtn_Click"
+                        Style="{StaticResource leftMenuButton}"
+                        Background="#EE6A5F"
+                        BorderBrush="#ce5347"/>
+                <Button x:Name="fullScreenBtn" Click="fullScreenBtn_Click"
+                        Style="{StaticResource leftMenuButton}"
+                        Background="#F5BD4F"
+                        BorderBrush="#D6A243"/> 
+                <Button x:Name="minimizeBtn" Click="minimizeBtn_Click"
+                        Style="{StaticResource leftMenuButton}"
+                        Background="#61C454"
+                        BorderBrush="#58A942"/>
+            </StackPanel>
+        </Border>
+
+        <!--<Border Grid.Column="3"
+            BorderBrush="#909090">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                        Margin="0 0 0 3">
+                <Button Style="{StaticResource rightMenuButton}">
+                    <Image Width="17" Height="17"
+                        Source="/Source/Images/search.png"
+                           VerticalAlignment="Center"
+                           Margin=" 0 0 9 0"/>
+                </Button>
+
+                <Button Style="{StaticResource rightMenuButton}">
+                    <Image Width="17" Height="17"
+                           Source="/Source/Images/notification.png"
+                           VerticalAlignment="Center"
+                           Margin=" 0 0 9 0"/>
+                </Button>
+
+                <Button Style="{StaticResource rightMenuButton}">
+                    <Image Width="17" Height="17"
+                           Source="/Source/Images/sleep.png"
+                           VerticalAlignment="Center"
+                           Margin=" 0 0 9 0"/>
+                </Button>
+            </StackPanel>
+        </Border> -->
+
+        <Border x:Name="topPanel" MouseDown="topPanel_MouseDown"
+            Grid.ColumnSpan="3" BorderThickness="0 0 0 1"
+            BorderBrush="#909090"></Border>
+
+        <!-- Left Menu -->
+        <Border Grid.Column="0" Grid.Row="1" Background="#fff"
+                BorderThickness="0 0 1 0" BorderBrush="#909090">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <StackPanel>
+                <!-- Logo -->
+                <TextBlock Text="Manage System" Foreground="#00C27C"
+                           FontSize="30" FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           Margin="30 25 30 25"/>
+                <!-- Menu Buttons -->
+
+                <!-- Home Button -->
+                <RadioButton x:Name="homeMenuBtn"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Home.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Home" Foreground="#000"
+                                FontSize="20" FontWeight="Medium"
+                                VerticalAlignment="Center"
+                                Margin="15 0 0 0"/>  
+                    </StackPanel>
+                </RadioButton>
+                <!-- Profile Button -->
+                <RadioButton x:Name="profileMenuBtn"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Profile.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>          
+                        <TextBlock Text="Profile" Foreground="#000"
+                                   FontSize="20" FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Edit Profile Button -->
+                <RadioButton x:Name="editProfileMenuBtn"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/EditProfile.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>  
+                        <TextBlock Text="Edit Profile" Foreground="#000"
+                                    FontSize="20" FontWeight="Medium"
+                                    VerticalAlignment="Center"
+                                    Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Information Button -->
+                <RadioButton x:Name="informationMenuBtn"
+                            Style="{StaticResource menuButton}"
+                            BorderThickness="0">        
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Document.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>  
+                        <TextBlock Text="Information" Foreground="#000"
+                                FontSize="20" FontWeight="Medium"
+                                VerticalAlignment="Center"
+                                Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Message Button -->
+                <RadioButton x:Name="messageMenuBtn"
+                            Style="{StaticResource menuButton}"
+                            BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Message.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Message" Foreground="#000"
+                                FontSize="20" FontWeight="Medium"
+                                VerticalAlignment="Center"
+                                Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Salary Button -->
+                <RadioButton x:Name="salaryMenuBtn"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Salary.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Salary" Foreground="#000"
+                            FontSize="20" FontWeight="Medium"
+                            VerticalAlignment="Center"
+                            Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Test Button -->
+                <RadioButton 
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Request.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Test Button" Foreground="#000"
+                                    FontSize="20" FontWeight="Medium"
+                                    VerticalAlignment="Center"
+                                    Margin="15 0 0 0"/> 
+                    </StackPanel>
+                </RadioButton>
+                <!-- Test Button -->
+                <RadioButton 
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Apps.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Test Button" Foreground="#000"
+                                    FontSize="20" FontWeight="Medium"
+                                    VerticalAlignment="Center"
+                                    Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Test Button -->
+                <RadioButton 
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Sloy.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Test Button" Foreground="#000"
+                                    FontSize="20" FontWeight="Medium"
+                                    VerticalAlignment="Center"
+                                    Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+                <!-- Settings Button -->
+                <RadioButton x:Name="settingsMenuBtn"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Source/Images/Settings.png" 
+                               Width="18" Height="20"
+                               Margin="18 0 0 0"/>
+                        <TextBlock Text="Settings" Foreground="#000"
+                                    FontSize="20" FontWeight="Medium"
+                                    VerticalAlignment="Center"
+                                    Margin="15 0 0 0"/>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+            </ScrollViewer>
+        </Border> 
+
+        <!-- Right Menu -->
+        <Border Grid.Column="2" Grid.Row="1"
+                BorderThickness="1 0 0 0" BorderBrush="#909090">
+        </Border>
+        
+        <!-- Center Section -->
+        <Border Grid.Column="1" Grid.Row="1">
+        </Border>
+        
+        <!-- Bottom Menu -->
+        <Border Grid.ColumnSpan="3" Grid.Row="3"
+                BorderThickness="1" BorderBrush="#909090">
+        </Border>
+        
+        <!-- Frames -->
+        <Frame x:Name="CenterMenuFrame" Grid.Column="1" Grid.Row="1" Background="Transparent"
+               NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>

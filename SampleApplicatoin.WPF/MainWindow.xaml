@@ -1,0 +1,36 @@
+﻿<Window x:Class="SampleApplicatoin.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleApplicatoin.WPF"
+        mc:Ignorable="d"
+        Title="Login" WindowStartupLocation="CenterScreen" WindowStyle="None"  
+        AllowsTransparency="True" Background="Transparent"  Height="500" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="10 0 0 10" MouseDown="Border_MouseDown_1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4aff61" Offset="0"/>
+                    <GradientStop Color="#4afaff" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Frame x:Name="AuthFrame" Grid.Column="1" Background="Transparent"
+               NavigationUIVisibility="Hidden"></Frame>
+
+        <Button x:Name="toAuthBtn" Grid.Column="1"
+                Click="toRegisterBtn_Click"
+                VerticalAlignment="Bottom" Margin="40"
+                Style="{StaticResource buttonInfo}"
+                HorizontalAlignment="Center" Content="Register">
+        </Button>
+    </Grid>
+</Window>

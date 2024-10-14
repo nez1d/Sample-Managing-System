@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Source\Images\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Images\Apps.png" />
+    <Resource Include="Source\Images\Document.png" />
+    <Resource Include="Source\Images\EditProfile.png" />
+    <Resource Include="Source\Images\Message.png" />
+    <Resource Include="Source\Images\Profile.png" />
+    <Resource Include="Source\Images\Request.png" />
+    <Resource Include="Source\Images\Salary.png" />
+    <Resource Include="Source\Images\Settings.png" />
+    <Resource Include="Source\Images\Sloy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Images\Notification.png" />
+    <Resource Include="Source\Images\search.png" />
+    <Resource Include="Source\Images\Sleep.png" />
+    <Resource Include="Source\Images\TopProfile.png" />
+    <Resource Include="Source\Images\Web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\Images\Auth\" />
+    <Folder Include="Source\Images\Main\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SampleApplication.Appliaction\SampleApplication.Appliaction.csproj" />
+    <ProjectReference Include="..\SampleApplicatoin.Persistence\SampleApplicatoin.Persistence.csproj" />
+  </ItemGroup>
+</Project>

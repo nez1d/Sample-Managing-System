@@ -1,22 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SampleApplicatoin.Domain.Models;
 using SampleApplicatoin.Persistence;
-using System.Net;
-using System.Reflection;
+using System.Data.Entity;
 
 namespace SampleApplication.Appliaction.Data.Repository
 {
     public class EmploeeRepository
     {
-        private readonly ApplicatoinDbContext _context;
-        public EmploeeRepository(ApplicatoinDbContext context) =>
+        private ApplicationDbContext _context;
+        public EmploeeRepository(ApplicationDbContext context) =>
             _context = context;
 
         public async Task<bool> Create(string login, string password)
         {
-            var user = GetByLogin(login);
+            var user = _context.Emploees
+                .Where(emploee => emploee.Login == login)
+                .FirstOrDefault();
 
-            if(user != null)
+            if (user != null)
             {
                 return false;
             }
@@ -33,7 +34,7 @@ namespace SampleApplication.Appliaction.Data.Repository
                     Patronymic = "",
                     Gender = "",
                     BirthDate = null,
-                    Education = "", 
+                    Education = "",
                     Specialization = "",
                     Qualification = "",
                     MaritalStatus = null,
@@ -56,32 +57,30 @@ namespace SampleApplication.Appliaction.Data.Repository
         {
             var user = GetByLogin(login);
 
-            if (user != null)
+            if (user == null)
             {
                 return false;
             }
             else
             {
-                var emploee = new Emploee
-                {
-                    Login = login,
-                    ServieNumber = servieNumber,
-                    PensionCode = pensionCode,
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Patronymic = patronymic,
-                    Gender = gender,
-                    BirthDate = birthDate,
-                    Education = education,
-                    Specialization = specialization,
-                    Qualification = qualification,
-                    MaritalStatus = maritalStatus,
-                    Address = address,
-                    PhoneNumber = phoneNumber,
-                    PhotoPath = photoPath,
-                    Photo = photo
-                };
-                _context.Emploees.AddAsync(emploee);
+                user.Login = login;
+                user.ServieNumber = servieNumber;
+                user.PensionCode = pensionCode;
+                user.FirstName = firstName;
+                user.LastName = lastName;
+                user.Patronymic = patronymic;
+                user.Gender = gender;
+                user.BirthDate = birthDate;
+                user.Education = education;
+                user.Specialization = specialization;
+                user.Qualification = qualification;
+                user.MaritalStatus = maritalStatus;
+                user.Address = address;
+                user.PhoneNumber = phoneNumber;
+                user.PhotoPath = photoPath;
+                user.Photo = photo;
+                
+                _context.Emploees.Update(user);
                 _context.SaveChangesAsync();
                 return true;
             }
@@ -95,21 +94,19 @@ namespace SampleApplication.Appliaction.Data.Repository
         public async Task<Emploee> GetById(int id)
         {
             return await _context.Emploees
-                .AsNoTracking()
                 .FirstOrDefaultAsync(emploee => emploee.Id == id);
         }
 
-        public async Task<Emploee> GetByLogin(string login)
+        public Emploee GetByLogin(string login)
         {
-            return await _context.Emploees
-                .AsNoTracking()
-                .FirstOrDefaultAsync(emploee => emploee.Login == login);
+            return _context.Emploees
+                .Where(emploee => emploee.Login == login)
+                .FirstOrDefault();
         }
 
         public async Task<List<Emploee>> GetAll()
         {
             return await _context.Emploees
-                .AsNoTracking()
                 .OrderBy(emploee => emploee.Id)
                 .ToListAsync();
         }

@@ -24,5 +24,10 @@ namespace SampleApplicatoin.WPF.Pages.Auth
                 
             }
         }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -98,7 +98,6 @@
   <ItemGroup>
     <Compile Include="Models\LoginModelView.cs" />
     <Compile Include="Models\RegisterModelView.cs" />
-    <Compile Include="Pages\Auth\ButtonAction.cs" />
     <Compile Include="Pages\Auth\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -157,6 +156,12 @@
   <ItemGroup>
     <Folder Include="Source\Images\Auth\" />
     <Folder Include="Source\Images\Main\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SampleApplicatoin.Persistence\SampleApplicatoin.Persistence.csproj">
+      <Project>{8c634a5e-f41e-4149-9b24-1ca8f3e1aacd}</Project>
+      <Name>SampleApplicatoin.Persistence</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

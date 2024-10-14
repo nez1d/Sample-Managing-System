@@ -52,8 +52,8 @@
                              Padding="10 3" FontSize="16"
                              Margin="75 0 75 0" FontWeight="Regular"/>
 
-                       
-                        <Button x:Name="loginBtn" Click="loginBtn_Click"
+
+                        <Button x:Name="registerBtn" Click="registerBtn_Click"
                             Style="{StaticResource button}"
                             Margin="0 25" Content="Sign in" />
                         <TextBlock Text="Already have an account?"

@@ -1,13 +1,12 @@
 ﻿using SampleApplicatoin.WPFCore.Pages.Main;
-using SampleApplicatoin.WPFCore.Pages.Notifications;
+using SampleApplicatoin.WPFCore.Pages.Main.Information;
 using System.Windows;
 using System.Windows.Input;
+using SampleApplicatoin.WPFCore.Pages.Salary;
+using SampleApplicatoin.WPFCore.Pages.Notifications;
 
 namespace SampleApplicatoin.WPF.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для MainForm.xaml
-    /// </summary>
     public partial class MainForm : Window
     {
         public MainForm()
@@ -17,7 +16,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new Pages.Main.PersonalInformationPage());
+            CenterMenuFrame.Navigate(new Home());
         }
 
         private int couter = 0;
@@ -39,7 +38,6 @@ namespace SampleApplicatoin.WPF.Forms
                 couter++;
                 this.WindowState = WindowState.Maximized;
             }
-            
         }
 
         private void minimizeBtn_Click(object sender, RoutedEventArgs e)
@@ -54,7 +52,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void profileMenuBtn_Click(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new Pages.Main.PersonalInformationPage());
+            CenterMenuFrame.Navigate(new InformationPage());
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -67,7 +65,10 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void Border_Loaded(object sender, RoutedEventArgs e)
         {
-            RightMenuFrame.Navigate(new DataFormIsNullNotification());
+            RightMenuFrame.Navigate(new InfoNotificationPage());
+            RightMenuFrame.Navigate(new SussessNotificationPage());
+            RightMenuFrame.Navigate(new WarningNotificationPage());
+            RightMenuFrame.Navigate(new ErrorNotificationPage());
         }
 
         private void RightMenuFrame_Loaded(object sender, RoutedEventArgs e)
@@ -76,6 +77,11 @@ namespace SampleApplicatoin.WPF.Forms
             {
                 RightMenuFrame.Visibility = Visibility.Hidden;
             }*/
+        }
+
+        private void salaryMenuBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CenterMenuFrame.Navigate(new SalaryPage());
         }
     }
 }

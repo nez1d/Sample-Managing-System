@@ -7,6 +7,16 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Source\Images\Auth\**" />
+    <Compile Remove="Source\Images\Main\**" />
+    <EmbeddedResource Remove="Source\Images\Auth\**" />
+    <EmbeddedResource Remove="Source\Images\Main\**" />
+    <None Remove="Source\Images\Auth\**" />
+    <None Remove="Source\Images\Main\**" />
+    <Page Remove="Source\Images\Auth\**" />
+    <Page Remove="Source\Images\Main\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Source\Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
@@ -28,8 +38,7 @@
     <Resource Include="Source\Images\Web.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Source\Images\Auth\" />
-    <Folder Include="Source\Images\Main\" />
+    <Folder Include="Styles\Main\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />

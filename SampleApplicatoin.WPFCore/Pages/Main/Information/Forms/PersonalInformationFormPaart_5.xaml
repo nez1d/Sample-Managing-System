@@ -1,0 +1,39 @@
+﻿<Page x:Class="SampleApplicatoin.WPFCore.Pages.Main.Information.Forms.PersonalInformationFormPaart_5"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SampleApplicatoin.WPFCore.Pages.Main.Information.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="550"
+      Title="PersonalInformationFormPaart_5">
+
+    <Grid>
+        <Border Background="#fff"
+                Padding="35 30">
+            <StackPanel HorizontalAlignment="Left"
+                        Orientation="Vertical">
+                <TextBlock Text="Signup Request"
+                           Style="{StaticResource InformationPageFormTitle}"/>
+                <StackPanel Orientation="Vertical">
+                    <!-- Gender ComboBox -->
+                    <TextBlock Text="Congratulations, you have successfully passed basic verification!"
+                               Style="{StaticResource InformationPageFormSubtitle}"
+                               Margin="0 30 0 0"/>
+                    <TextBlock Text="You can go to your profile and see what features are currently"
+                               Style="{StaticResource InformationPageFormSubtitle}"
+                               Margin="0 5 0 5"/>
+                    <TextBlock Text="available to you!"
+                               Style="{StaticResource InformationPageFormSubtitle}"/>
+                    <!-- Button -->
+                    <Button x:Name="SendRequestButtonPart_5"
+                            Style="{StaticResource InformationPageFormSendButton}"
+                            Content="Send Request"
+                            Foreground="#fff"
+                            Margin="0 15">
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

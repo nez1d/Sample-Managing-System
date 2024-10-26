@@ -12,9 +12,9 @@ namespace SampleApplicatoin.WPFCore.Pages.Main
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            notifBorder.Visibility = System.Windows.Visibility.Hidden;
+            /*notifBorder.Visibility = System.Windows.Visibility.Hidden;
             notifRow.Height = new GridLength();
-            notifRow.MaxHeight = 80;
+            notifRow.MaxHeight = 80;*/
         }
     }
 }

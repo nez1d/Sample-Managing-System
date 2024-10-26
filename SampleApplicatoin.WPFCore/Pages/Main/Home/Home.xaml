@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="notifRow" Height="250"/>
+            <RowDefinition x:Name="notifRow" Height="80"/>
             <RowDefinition Height="350"/>
             <RowDefinition Height="350"/>
         </Grid.RowDefinitions>
@@ -24,7 +24,7 @@
             <StackPanel>
                 <TextBlock Text="Home" Margin="0 30"
                            FontSize="24" FontWeight="SemiBold"/>
-                <Border CornerRadius="10" x:Name="notifBorder"
+                <!-- <Border CornerRadius="10" x:Name="notifBorder"
                         Background="#5AE190" Height="140"
                         Padding="20 10" HorizontalAlignment="Stretch">
                     <StackPanel>
@@ -48,8 +48,8 @@
                         </Grid>
                     </StackPanel>
                     
-                </Border>
-            </StackPanel>
+                </Border> -->
+            </StackPanel> 
         </Border>
 
         <Border Grid.Row="1">

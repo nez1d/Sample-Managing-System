@@ -40,8 +40,8 @@ namespace SampleApplicatoin.WPF.Pages.Auth
                     AuthConstants.Login = loginTextBox.Text;
                     AuthConstants.Password = passwordTextBox.Text;
                     Forms.MainForm mainForm = new Forms.MainForm();
-                    mainForm.Show();
                     Application.Current.MainWindow.Close();
+                    mainForm.Show();
                 }
             }
         }

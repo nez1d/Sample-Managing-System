@@ -12,15 +12,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="430"/>
+            <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-
         <!-- Top menu -->
         <Border MouseDown="Border_MouseDown" Panel.ZIndex="10"
             Grid.Column="0">
@@ -40,13 +38,11 @@
                         BorderBrush="#58A942"/>
             </StackPanel>
         </Border>
-
         <Border Grid.ColumnSpan="3" Grid.Row="0" Background="Transparent" MouseDown="Border_MouseDown">
             <Border x:Name="topPanel" 
                 BorderThickness="0 0 0 1"
                 BorderBrush="#E4E4E4"></Border>
         </Border>
-
         <!-- Left Menu -->
         <Border Grid.Column="0" Grid.Row="1" Background="#fff"
                 BorderThickness="0 0 1 0" BorderBrush="#E4E4E4">
@@ -57,13 +53,11 @@
                            FontSize="30" FontWeight="Medium"
                            VerticalAlignment="Center"
                            Margin="30 25 30 25"/>
-                <!-- Menu Buttons -->
-
                 <!-- Home Button -->
                 <RadioButton x:Name="homeMenuBtn"
                              Click="homeMenuBtn_Click"
-                    Style="{StaticResource menuButton}"
-                    BorderThickness="0">
+                             Style="{StaticResource menuButton}"
+                             BorderThickness="0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Source/Images/Home.png" 
                                Width="18" Height="20"
@@ -77,8 +71,8 @@
                 <!-- Profile Button -->
                 <RadioButton x:Name="profileMenuBtn"
                              Click="profileMenuBtn_Click"
-                    Style="{StaticResource menuButton}"
-                    BorderThickness="0">
+                             Style="{StaticResource menuButton}"
+                             BorderThickness="0">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Source/Images/Profile.png" 
                                Width="18" Height="20"
@@ -133,6 +127,7 @@
                 </RadioButton>
                 <!-- Salary Button -->
                 <RadioButton x:Name="salaryMenuBtn"
+                             Click="salaryMenuBtn_Click"
                     Style="{StaticResource menuButton}"
                     BorderThickness="0">
                     <StackPanel Orientation="Horizontal">
@@ -204,28 +199,33 @@
             </StackPanel>
             </ScrollViewer>
         </Border> 
-
-        <!-- Right Menu -->
+        <!-- Right Notification Menu -->
         <Border Grid.Column="2" Grid.Row="1" Loaded="Border_Loaded"
                 BorderThickness="1 0 0 0" BorderBrush="#E4E4E4">
-            <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-                <Frame x:Name="RightMenuFrame" Loaded="RightMenuFrame_Loaded" Background="Transparent"
+            <ScrollViewer Grid.Column="1" Grid.Row="1" 
+                          HorizontalScrollBarVisibility="Hidden" 
+                          VerticalScrollBarVisibility="Hidden">
+                <Frame x:Name="RightMenuFrame" Loaded="RightMenuFrame_Loaded" 
+                       Background="Transparent"
                        NavigationUIVisibility="Hidden"
-                       VerticalAlignment="Top" Margin="0 20 0 0"></Frame>
+                       VerticalAlignment="Top" 
+                       HorizontalAlignment="Stretch"
+                       Padding="30 30 30 30">
+                </Frame>
             </ScrollViewer>
         </Border>
-        
         <!-- Center Section -->
-        <Border Grid.Column="1" Grid.Row="1">
+        <Border Grid.Column="1" Grid.Row="1"
+                Background="#F6F6F6">
         </Border>
-        
         <!-- Bottom Menu -->
         <Border Grid.ColumnSpan="3" Grid.Row="3"
                 BorderThickness="1" BorderBrush="#E4E4E4">
         </Border>
-        
         <!-- Frames -->
-        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer Grid.Column="1" Grid.Row="1" 
+                      HorizontalScrollBarVisibility="Hidden" 
+                      VerticalScrollBarVisibility="Hidden">
             <Frame x:Name="CenterMenuFrame" Grid.Column="1" Grid.Row="1" Background="Transparent"
                 NavigationUIVisibility="Hidden"></Frame>
         </ScrollViewer>

@@ -13,44 +13,47 @@
             CornerRadius="0 10 10 0">
             <StackPanel >
                 <!-- Title Section -->
-                <TextBlock Style="{StaticResource titleText}" 
+                <TextBlock Style="{StaticResource titleAuthText}" 
                Text="Register" Foreground="#000"
                Margin="15"/>
 
                 
                 <!-- Form Section -->
                 <Grid>
-                    <TextBlock Style="{StaticResource otherText}" 
+                    <TextBlock Style="{StaticResource subtitleText}" 
                            Text="BASIC INFORMATION" Foreground="#000"
                            Margin="75 15 75 0"/>
                     <StackPanel Margin="0 15 0 0">
-                        <TextBlock Style="{StaticResource otherText}" 
-                               Text="Login" Foreground="#000"
+                        <TextBlock Style="{StaticResource subtitleText}" 
+                               Text="Login:" Foreground="#000"
                                Margin="75 40 75 5" FontWeight="SemiBold"
                                FontSize="16"/>
 
                         <TextBox x:Name="loginTextBox" Height="30"
-                             Padding="10 3" FontSize="16"
-                             Margin="75 0 75 0" FontWeight="Regular"/>
+                             Padding="0 3" FontSize="16"
+                             Margin="75 0 75 0" FontWeight="SemiBold"
+                             BorderThickness="0 0 0 1"/>
 
-                        <TextBlock Style="{StaticResource otherText}" 
-                               Text="Password" Foreground="#000"
+                        <TextBlock Style="{StaticResource subtitleText}" 
+                               Text="Password:" Foreground="#000"
                                Margin="75 10 75 5" FontWeight="SemiBold"
                                FontSize="16"/>
 
                         <TextBox x:Name="passwordTextBox" Height="30"
-                             Padding="10 3" FontSize="16"
-                             Margin="75 0 75 0" FontWeight="Regular"/>
+                             Padding="0 3" FontSize="16"
+                             Margin="75 0 75 0" FontWeight="SemiBold"
+                             BorderThickness="0 0 0 1"/>
 
 
-                        <TextBlock Style="{StaticResource otherText}" 
-                                   Text="Confirm Password" Foreground="#000"
+                        <TextBlock Style="{StaticResource subtitleText}" 
+                                   Text="Confirm Password:" Foreground="#000"
                                    Margin="75 10 75 5" FontWeight="SemiBold"
                                    FontSize="16"/>
 
                         <TextBox x:Name="confirmPasswordTextBox" Height="30"
                              Padding="10 3" FontSize="16"
-                             Margin="75 0 75 0" FontWeight="Regular"/>
+                             Margin="75 0 75 0" FontWeight="SemiBold"
+                             BorderThickness="0 0 0 1"/>
 
 
                         <Button x:Name="registerBtn" Click="registerBtn_Click"

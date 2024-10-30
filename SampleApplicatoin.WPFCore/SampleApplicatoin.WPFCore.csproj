@@ -17,6 +17,10 @@
     <Page Remove="Source\Images\Main\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Source\Images\Notification\Error.png" />
+    <None Remove="Source\Images\Notification\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Source\Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
@@ -24,6 +28,9 @@
     <Resource Include="Source\Images\Document.png" />
     <Resource Include="Source\Images\EditProfile.png" />
     <Resource Include="Source\Images\Message.png" />
+    <Resource Include="Source\Images\Notification\Error.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Source\Images\Profile.png" />
     <Resource Include="Source\Images\Request.png" />
     <Resource Include="Source\Images\Salary.png" />
@@ -38,6 +45,7 @@
     <Resource Include="Source\Images\Web.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pages\Home\" />
     <Folder Include="Styles\Main\" />
   </ItemGroup>
   <ItemGroup>
@@ -55,5 +63,8 @@
   <ItemGroup>
     <ProjectReference Include="..\SampleApplication.Appliaction\SampleApplication.Appliaction.csproj" />
     <ProjectReference Include="..\SampleApplicatoin.Persistence\SampleApplicatoin.Persistence.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Images\Notification\Info.png" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using SampleApplicatoin.WPFCore.Pages.Salary;
 using SampleApplicatoin.WPFCore.Pages.Notifications;
+using SampleApplicatoin.WPFCore.Pages.Account.Menu;
 
 namespace SampleApplicatoin.WPF.Forms
 {
@@ -52,7 +53,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void profileMenuBtn_Click(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new InformationPage());
+            CenterMenuFrame.Navigate(new AccountMenu());
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -73,15 +74,16 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void RightMenuFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            /*if(RightMenuFrame.Content == null)
-            {
-                RightMenuFrame.Visibility = Visibility.Hidden;
-            }*/
         }
 
         private void salaryMenuBtn_Click(object sender, RoutedEventArgs e)
         {
             CenterMenuFrame.Navigate(new SalaryPage());
+        }
+
+        private void informationMenuBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CenterMenuFrame.Navigate(new InformationPage());
         }
     }
 }

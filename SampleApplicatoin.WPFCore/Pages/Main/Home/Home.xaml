@@ -8,7 +8,7 @@
       d:DesignHeight="1000" d:DesignWidth="900"
       Title="Home">
 
-    <Grid Background="#fff">
+    <Grid Background="#F6F6F6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.4*"/>
             <ColumnDefinition Width="*"/>
@@ -52,29 +52,36 @@
             </StackPanel> 
         </Border>
 
-        <Border Grid.Row="1">
-            <Border CornerRadius="10" Margin="25 10 10 10"
-                    Background="#F4F4F4">
-                <StackPanel>
+        <Border Margin="15 15 0 15"
+                BorderThickness="1"
+                BorderBrush="#E3E7EE"
+                CornerRadius="10"
+                Background="#fff" 
+                Grid.Row="1">
+            <StackPanel>
                     
-                </StackPanel>
-            </Border>
+            </StackPanel>
+            
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="2">
-            <Border CornerRadius="10" Margin="10 10 25 10"
-            Background="#F4F4F4">
-                <StackPanel>
-
-                </StackPanel>
-            </Border>
+        <Border Grid.Row="1" 
+                Grid.Column="2"
+                Margin="15"
+                BorderThickness="1"
+                BorderBrush="#E3E7EE"
+                CornerRadius="10"
+                Background="#fff">
+            <StackPanel>
+            </StackPanel>
         </Border>
 
-        <Border Grid.Row="2" Grid.ColumnSpan="2">
-            <Border CornerRadius="10" Margin="25 10 25 10"
-            Background="#F4F4F4">
-
-            </Border>
+        <Border Grid.Row="2" 
+                Grid.ColumnSpan="2"
+                Margin="15 0 15 15"
+                BorderThickness="1"
+                BorderBrush="#E3E7EE"
+                CornerRadius="10"
+                Background="#fff" >
         </Border>
     </Grid>
 </Page>

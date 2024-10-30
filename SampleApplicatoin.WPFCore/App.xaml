@@ -91,8 +91,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-        <!--    Menu Button     -->
+        <!--    Menu Button    -->
         <Style x:Key="menuButton" TargetType="RadioButton">
             <Setter Property="Height" Value="50"/>
             <Setter Property="Margin" Value="30 10 30 0"/>
@@ -352,7 +351,46 @@
             <Setter Property="" Value=""/>
         
         </Style>  -->
-
         
+        <!-- Account Menu -->
+
+        <Style x:Key="AccountMenuItemBorder" TargetType="Button">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#E3E7EE"/>
+            <Setter Property="MaxHeight" Value="150"/>
+            <Setter Property="MaxWidth" Value="350"/>
+            <Setter Property="Background" Value="#fff"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8" BorderThickness="1" BorderBrush="#E3E7EE">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.8"/>
+                    <Setter Property="Background" Value="#fbfbfb"/>
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#f6f6f6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="AccountMenuItemTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+        </Style>
+
+        <Style x:Key="AccountMenuItemSubtitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="Opacity" Value="0.6"/>
+        </Style>
+
+
     </Application.Resources>
 </Application>

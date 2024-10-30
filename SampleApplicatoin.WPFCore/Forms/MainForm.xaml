@@ -12,7 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -99,6 +99,7 @@
                 </RadioButton>
                 <!-- Information Button -->
                 <RadioButton x:Name="informationMenuBtn"
+                             Click="informationMenuBtn_Click"
                             Style="{StaticResource menuButton}"
                             BorderThickness="0">        
                     <StackPanel Orientation="Horizontal">
@@ -226,8 +227,12 @@
         <ScrollViewer Grid.Column="1" Grid.Row="1" 
                       HorizontalScrollBarVisibility="Hidden" 
                       VerticalScrollBarVisibility="Hidden">
-            <Frame x:Name="CenterMenuFrame" Grid.Column="1" Grid.Row="1" Background="Transparent"
-                NavigationUIVisibility="Hidden"></Frame>
+            <Frame x:Name="CenterMenuFrame" Grid.Column="1" Grid.Row="1" 
+                   Background="Transparent"
+                   NavigationUIVisibility="Hidden"></Frame>
         </ScrollViewer>
+
+        <GridSplitter Grid.Column="2" Grid.Row="1" Width="5" 
+                      HorizontalAlignment="Left"/>
     </Grid>
 </Window>

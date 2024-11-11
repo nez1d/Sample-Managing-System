@@ -5,6 +5,7 @@ using System.Windows.Input;
 using SampleApplicatoin.WPFCore.Pages.Salary;
 using SampleApplicatoin.WPFCore.Pages.Notifications;
 using SampleApplicatoin.WPFCore.Pages.Account.Menu;
+using SampleApplicatoin.WPFCore.Pages.Home;
 
 namespace SampleApplicatoin.WPF.Forms
 {
@@ -17,7 +18,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new Home());
+            CenterMenuFrame.Navigate(new HomePage());
         }
 
         private int couter = 0;
@@ -48,7 +49,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void homeMenuBtn_Click(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new Home());
+            CenterMenuFrame.Navigate(new SampleApplicatoin.WPFCore.Pages.Home.HomePage());
         }
 
         private void profileMenuBtn_Click(object sender, RoutedEventArgs e)

@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BBDDF8E0-9328-4B6A-B706-5F4046924FEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplicatoin.WPF", "SampleApplicatoin.WPF\SampleApplicatoin.WPF.csproj", "{1717495A-FB13-46F4-8D57-F7CA708925BE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApplicatoin.Persistence", "SampleApplicatoin.Persistence\SampleApplicatoin.Persistence.csproj", "{8C634A5E-F41E-4149-9B24-1CA8F3E1AACD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApplicatoin.Domain", "SampleApplicatoin.Domain\SampleApplicatoin.Domain.csproj", "{2ADE4B3E-D14A-43CB-B9C2-42F38148BDB0}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1717495A-FB13-46F4-8D57-F7CA708925BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1717495A-FB13-46F4-8D57-F7CA708925BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1717495A-FB13-46F4-8D57-F7CA708925BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1717495A-FB13-46F4-8D57-F7CA708925BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C634A5E-F41E-4149-9B24-1CA8F3E1AACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C634A5E-F41E-4149-9B24-1CA8F3E1AACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C634A5E-F41E-4149-9B24-1CA8F3E1AACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,7 +44,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1717495A-FB13-46F4-8D57-F7CA708925BE} = {BBDDF8E0-9328-4B6A-B706-5F4046924FEC}
 		{8C634A5E-F41E-4149-9B24-1CA8F3E1AACD} = {6DD010F7-F4D1-4013-8852-7A029E8D17F1}
 		{2ADE4B3E-D14A-43CB-B9C2-42F38148BDB0} = {8625FE37-A192-4C89-9721-131549FEF77A}
 		{06C58F14-D3D0-4D8B-AACE-AB6FC8193358} = {8625FE37-A192-4C89-9721-131549FEF77A}

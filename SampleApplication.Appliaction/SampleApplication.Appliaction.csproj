@@ -17,4 +17,11 @@
     <ProjectReference Include="..\SampleApplicatoin.Persistence\SampleApplicatoin.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\User\Commands\Create\" />
+    <Folder Include="Data\User\Commands\Delete\" />
+    <Folder Include="Data\User\Commands\Update\" />
+    <Folder Include="Data\User\Queries\" />
+  </ItemGroup>
+
 </Project>

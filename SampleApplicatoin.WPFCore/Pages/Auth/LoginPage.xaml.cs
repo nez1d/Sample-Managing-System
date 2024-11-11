@@ -1,23 +1,25 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
-using SampleApplication.Appliaction.Data.Repository;
 using SampleApplicatoin.Persistence;
-using System.Linq;
+using SampleApplication.Appliaction.Services;
 using SampleApplicatoin.WPFCore.Models.Constants;
+using SampleApplicatoin.Persistence.Repository;
 
 
 namespace SampleApplicatoin.WPF.Pages.Auth
 {
     public partial class LoginPage : Page
     {
-        private EmploeeRepository _emploeeRepository;
-        ApplicationDbContext _applicatoinDbContext;
+        private readonly EmployeeService emploeeService;
+        private readonly ApplicationDbContext applicatoinDbContext;
+        private readonly EmploeeRepository emploeeRepository;
 
         public LoginPage()
         {
-            _applicatoinDbContext = new ApplicationDbContext();
-            _emploeeRepository = new EmploeeRepository(_applicatoinDbContext);
+            applicatoinDbContext = new ApplicationDbContext();
+            EmployeeService emploeeService = new EmployeeService(applicatoinDbContext);
+            emploeeRepository = new EmploeeRepository(applicatoinDbContext);
             InitializeComponent();
         }
 
@@ -29,13 +31,14 @@ namespace SampleApplicatoin.WPF.Pages.Auth
         {
         }
 
-        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        private async void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            var user = _emploeeRepository.GetByLogin(
-                loginTextBox.Text);
-            if(user != null)
+            var user = await emploeeRepository.GetByLogin(loginTextBox.Text);
+
+            if (user != null)
             {
-                if(user.Login == loginTextBox.Text && user.Password == passwordTextBox.Text)
+                if (user.Login == loginTextBox.Text && 
+                    user.Password == passwordTextBox.Text)
                 {
                     AuthConstants.Login = loginTextBox.Text;
                     AuthConstants.Password = passwordTextBox.Text;
@@ -44,6 +47,8 @@ namespace SampleApplicatoin.WPF.Pages.Auth
                     mainForm.Show();
                 }
             }
+
+
         }
     }
 }

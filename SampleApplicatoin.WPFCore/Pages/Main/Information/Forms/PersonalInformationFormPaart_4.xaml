@@ -14,9 +14,15 @@
                         Orientation="Vertical">
                 <TextBlock Text="Signup Request"
                            Style="{StaticResource InformationPageFormTitle}"/>
-                <TextBlock Text="Let's start with the basic information!"
+                <TextBlock Text="Exhale, last stage! "
                            Style="{StaticResource InformationPageFormSubtitle}"
                            Margin="0 30 0 0"/>
+                <TextBlock Text="Please provide your contact information so that we can"
+                           Style="{StaticResource InformationPageFormSubtitle}"
+                           Margin="0 5 0 0"/>
+                <TextBlock Text="contact you."
+                           Style="{StaticResource InformationPageFormSubtitle}"
+                           Margin="0 5 0 0"/>
                 <StackPanel Orientation="Vertical">
                     <!-- Email Text Box -->
                     <TextBox x:Name="EmailInformatinoTextBox"

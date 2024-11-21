@@ -127,63 +127,21 @@
                     </StackPanel>
                 </RadioButton>
                 <!-- Salary Button -->
-                <RadioButton x:Name="salaryMenuBtn"
+                    <RadioButton x:Name="salaryMenuBtn"
                              Click="salaryMenuBtn_Click"
                     Style="{StaticResource menuButton}"
                     BorderThickness="0">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Source/Images/Salary.png" 
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Source/Images/Salary.png" 
                                Width="18" Height="20"
                                Margin="18 0 0 0"/>
-                        <TextBlock Text="Salary" Foreground="#000"
+                            <TextBlock Text="Salary" Foreground="#000"
                             FontSize="18" FontWeight="Medium"
                             VerticalAlignment="Center"
                             Margin="15 0 0 0"/>
-                    </StackPanel>
-                </RadioButton>
-                <!-- Test Button -->
-                <RadioButton 
-                    Style="{StaticResource menuButton}"
-                    BorderThickness="0">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Source/Images/Request.png" 
-                               Width="18" Height="20"
-                               Margin="18 0 0 0"/>
-                        <TextBlock Text="Test Button" Foreground="#000"
-                                    FontSize="18" FontWeight="Medium"
-                                    VerticalAlignment="Center"
-                                    Margin="15 0 0 0"/> 
-                    </StackPanel>
-                </RadioButton>
-                <!-- Test Button -->
-                <RadioButton 
-                    Style="{StaticResource menuButton}"
-                    BorderThickness="0">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Source/Images/Apps.png" 
-                               Width="18" Height="20"
-                               Margin="18 0 0 0"/>
-                        <TextBlock Text="Test Button" Foreground="#000"
-                                    FontSize="18" FontWeight="Medium"
-                                    VerticalAlignment="Center"
-                                    Margin="15 0 0 0"/>
-                    </StackPanel>
-                </RadioButton>
-                <!-- Test Button -->
-                <RadioButton 
-                    Style="{StaticResource menuButton}"
-                    BorderThickness="0">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Source/Images/Sloy.png" 
-                               Width="18" Height="20"
-                               Margin="18 0 0 0"/>
-                        <TextBlock Text="Test Button" Foreground="#000"
-                                    FontSize="18" FontWeight="Medium"
-                                    VerticalAlignment="Center"
-                                    Margin="15 0 0 0"/>
-                    </StackPanel>
-                </RadioButton>
-                <!-- Settings Button -->
+                        </StackPanel>
+                    </RadioButton>
+                    <!-- Settings Button -->
                 <RadioButton x:Name="settingsMenuBtn"
                     Style="{StaticResource menuButton}"
                     BorderThickness="0">

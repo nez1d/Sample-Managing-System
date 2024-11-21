@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using SampleApplication.Appliaction.Services;
 using SampleApplicatoin.Domain.Models;
 using SampleApplicatoin.Persistence;
 using SampleApplicatoin.Persistence.Repository;
@@ -9,29 +10,26 @@ namespace SampleApplicatoin.WPF.Pages.Auth
 {
     public partial class RegisterPage : Page
     {
-        private EmploeeRepository emploeeRepository;
-            
+        private readonly EmployeeService employeeService;
+        private readonly EmploeeRepository emploeeRepository;
+
         public RegisterPage()
         {
             ApplicationDbContext applicatoinDbContext = new ApplicationDbContext();
+            employeeService = new EmployeeService(applicatoinDbContext);
             emploeeRepository = new EmploeeRepository(applicatoinDbContext);
             InitializeComponent();
         }
 
-        private void registerBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void registerBtn_Click(object sender, RoutedEventArgs e)
         {
-            bool validPassword = ConfirmPassword(confirmPasswordTextBox.Text,
-                passwordTextBox.Text);
+            var user = employeeService.RegisterAsync(
+                loginTextBox.Text, 
+                passwordTextBox.Text, 
+                confirmPasswordTextBox.Text);
 
-            if (validPassword)
+            if (user.Result)
             {
-                Employee emploee = new Employee
-                {
-                    Login = loginTextBox.Text,
-                    Password = passwordTextBox.Text
-                };
-                emploeeRepository.Create(emploee);
-
                 MessageBox.Show("Аккаунт Создан!");
                 AuthConstants.Login = loginTextBox.Text;
                 AuthConstants.Password = passwordTextBox.Text;
@@ -39,17 +37,11 @@ namespace SampleApplicatoin.WPF.Pages.Auth
                 mainForm.Show();
                 Application.Current.MainWindow.Close();
             }
-        }
-        public bool ConfirmPassword(string password, string confirmPassword)
-        {
-            if(password == confirmPassword && password != null)
-            {
-                return true;
-            }
             else
             {
-                return false;
+                MessageBox.Show("Ошибка создания аккаунта!");
             }
         }
+
     }
 }

@@ -27,6 +27,7 @@
                                Style="{StaticResource InformationPageFormSubtitle}"/>
                     <!-- Button -->
                     <Button x:Name="SendRequestButtonPart_5"
+                            Click="SendRequestButtonPart_5_Click"
                             Style="{StaticResource InformationPageFormSendButton}"
                             Content="Send Request"
                             Foreground="#fff"

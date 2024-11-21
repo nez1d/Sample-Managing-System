@@ -1,28 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SampleApplication.Appliaction.Services;
+using SampleApplicatoin.Domain.Enums;
+using SampleApplicatoin.Persistence;
+using SampleApplicatoin.WPFCore.Models.Constants;
+using SampleApplicatoin.WPFCore.ViewModels;
 
-namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
+namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms;
+
+public partial class PersonalInformationFormPaart_5 : Page
 {
-    /// <summary>
-    /// Логика взаимодействия для PersonalInformationFormPaart_5.xaml
-    /// </summary>
-    public partial class PersonalInformationFormPaart_5 : Page
+    private ApplicationDbContext context;
+    private readonly EmployeeService employeeService;
+    public PersonalInformationFormPaart_5()
     {
-        public PersonalInformationFormPaart_5()
-        {
-            InitializeComponent();
-        }
+        context = new ApplicationDbContext();
+        employeeService = new EmployeeService(context);
+        InitializeComponent();
+    }
+
+    private void SendRequestButtonPart_5_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        employeeService.AddPersonalInfoAsync(
+            AuthConstants.Login, AuthConstants.Password, EmploeeViewModel.FirstName, 
+            EmploeeViewModel.LastName, EmploeeViewModel.Patronymic, Gender.Female, 
+            EmploeeViewModel.BirthDate, EmploeeViewModel.Education, EmploeeViewModel.Specialization, 
+            EmploeeViewModel.Qualification, EmploeeViewModel.MaritalStatus, EmploeeViewModel.Address, 
+            EmploeeViewModel.PhoneNumber);
+
+        MessageBox.Show("Данные отправлены!");
+        this.Visibility = Visibility.Hidden;
+
     }
 }

@@ -45,6 +45,7 @@
     <Resource Include="Source\Images\Web.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pages\Settings\" />
     <Folder Include="Styles\Main\" />
   </ItemGroup>
   <ItemGroup>

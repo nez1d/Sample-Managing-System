@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SampleApplicatoin.Domain.Models;
-using System.Web;
 
 namespace SampleApplicatoin.Persistence.Repository;
 
@@ -10,17 +9,20 @@ public class EmploeeRepository
     public EmploeeRepository(ApplicationDbContext context) =>
         this.context = context;
 
-    public async Task<bool> Create(Employee emploee)
+    public async Task<Employee> Create(Employee emploee)
     {
-        var user = await GetByLogin(emploee.Login);
+        var user = this.GetByLogin(emploee.Login);
 
-        if(user == null)
+        if(user.Result == null)
         {
-            context.Emploees.AddAsync(emploee);
-            context.SaveChangesAsync();
-            return true;
+            if (user.Result == null)
+            {
+                await context.Emploees.AddAsync(emploee);
+                context.SaveChangesAsync();
+                return emploee;
+            }
         }
-        return false;
+        return null;
     }
 
     public async Task<bool> Update(Employee emploee)
@@ -28,7 +30,7 @@ public class EmploeeRepository
         var user = await GetByLogin(emploee.Login);
         if(user != null)
         {
-            context.Emploees.Update(user);
+            context.Emploees.Update(emploee);
             await context.SaveChangesAsync();
             return true;
         }
@@ -53,24 +55,16 @@ public class EmploeeRepository
             .ToListAsync();
     }
 
-    public async Task<Employee> GetById(Guid id)
+    public Task<Employee> GetById(Guid id)
     {
-        return await context.Emploees
+        return context.Emploees
             .FirstOrDefaultAsync(emploee => emploee.Id == id);
     }
 
     public async Task<Employee> GetByLogin(string login)
     {
-        return await context.Emploees
+        return context.Emploees
             .Where(emploee => emploee.Login == login)
-            .FirstOrDefaultAsync();
-    }
-
-    public async Task<Employee> GetByLoginAndPassword(string login, string password)
-    {
-        return await context.Emploees
-            .Where(emploee => emploee.Login == login &&
-                emploee.Password == password)
-                .FirstOrDefaultAsync();
+            .FirstOrDefault();
     }
 }

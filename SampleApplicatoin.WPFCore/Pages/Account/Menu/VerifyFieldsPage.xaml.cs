@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SampleApplicatoin.WPFCore.Pages.Main.Information;
 
-namespace SampleApplicatoin.WPFCore.Pages.Account.Menu
+namespace SampleApplicatoin.WPFCore.Pages.Account.Menu;
+
+public partial class VerifyFieldsPage : Page
 {
-    /// <summary>
-    /// Логика взаимодействия для VerifyFieldsPage.xaml
-    /// </summary>
-    public partial class VerifyFieldsPage : Page
+    public VerifyFieldsPage()
     {
-        public VerifyFieldsPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
+
+    private void clickToPassPersonalVerifyButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        GridRow_1.Height = new GridLength(0);
+        GridRow_2.Height = new GridLength(0);
+        GridRow_3.Height = new GridLength(0);
+
+        verifyFieldsFrame.Visibility = Visibility.Visible;
+        
+        verifyFieldsFrame.Navigate(new InformationPage());
     }
 }

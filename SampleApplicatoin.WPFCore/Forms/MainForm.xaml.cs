@@ -96,7 +96,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void informationMenuBtn_Click(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new InformationPage());
+            /*CenterMenuFrame.Navigate(new InformationPage());*/
         }
     }
 }

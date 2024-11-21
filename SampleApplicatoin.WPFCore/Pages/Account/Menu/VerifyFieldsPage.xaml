@@ -16,12 +16,11 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition x:Name="GridRow_1" Height="40"/>
+            <RowDefinition x:Name="GridRow_2" Height="80"/>
+            <RowDefinition x:Name="GridRow_3" Height="70"/>
+            <RowDefinition x:Name="GridRow_4" Height="*"/>
+            <RowDefinition x:Name="GridRow_5" Height="50"/>
         </Grid.RowDefinitions>
         
         <Border Grid.ColumnSpan="3"
@@ -75,6 +74,7 @@
         <Border Grid.Column="0"
                  Grid.Row="1">
             <Button x:Name="clickToPassPersonalVerifyButton"
+                    Click="clickToPassPersonalVerifyButton_Click"
                     Content="Click to pass..."
                     FontSize="16"
                     FontWeight="Regular"
@@ -131,8 +131,8 @@
         </Border>
 
         <Frame x:Name="verifyFieldsFrame" 
-               Grid.ColumnSpan="4" Grid.Row="4"></Frame>
-        
-        
+               Grid.ColumnSpan="3" Grid.Row="3"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"></Frame>
     </Grid>
 </Page>

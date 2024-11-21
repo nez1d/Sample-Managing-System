@@ -10,7 +10,7 @@
         Background="#fff" WindowStyle="None">
     <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="240"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
@@ -50,7 +50,7 @@
                 <StackPanel>
                 <!-- Logo -->
                 <TextBlock Text="Manage System" Foreground="#00C27C"
-                           FontSize="30" FontWeight="Medium"
+                           FontSize="19" FontWeight="Medium"
                            VerticalAlignment="Center"
                            Margin="30 25 30 25"/>
                 <!-- Home Button -->

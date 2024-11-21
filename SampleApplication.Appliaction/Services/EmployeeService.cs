@@ -5,7 +5,7 @@ using SampleApplicatoin.Persistence.Repository;
 
 namespace SampleApplication.Appliaction.Services;
 
-public class EmployeeService/* : IEmployeeService*/
+public class EmployeeService
 {
     private readonly ApplicationDbContext applicationDbContext;
     private readonly EmploeeRepository emploeeRepository;
@@ -52,43 +52,84 @@ public class EmployeeService/* : IEmployeeService*/
 
     public async Task DeleteAsync() { }
 
-    public async Task AddPersonalInfoAsync(
-        string login, string password, string firstName, string lastName,
-        string patronymic, Gender gender, DateTime birthDate, string education,
-        string specialization, string qualification, int maritalStatus,
-        string address, string phoneNumber)
+    public async Task AddPersonalInfoAsync(Employee employee)
     {
-        if (!string.IsNullOrWhiteSpace(firstName) &&
-            !string.IsNullOrWhiteSpace(lastName) &&
-            !string.IsNullOrWhiteSpace(patronymic) &&
-            gender != null && birthDate != null &&
-            !string.IsNullOrWhiteSpace(education) &&
-            !string.IsNullOrWhiteSpace(specialization) &&
-            !string.IsNullOrWhiteSpace(qualification) &&
-            maritalStatus != null &&
-            !string.IsNullOrWhiteSpace(address) &&
-            !string.IsNullOrWhiteSpace(phoneNumber))
+        if (employee != null)
         {
-            var emploee = new Employee
-            {
-                Login = login,
-                Password = password,
-                FirstName = firstName,
-                LastName = lastName,
-                Patronymic = patronymic,
-                Gender = gender,
-                BirthDate = birthDate,
-                Education = education,
-                Specialization = specialization,
-                Qualification = qualification,
-                MaritalStatus = maritalStatus,
-                Address = address,
-                PhoneNumber = phoneNumber,
-                IsValidInfo = true
-            };
+            var user = await emploeeRepository.GetByLogin(employee.Login);
 
-            await emploeeRepository.Update(emploee);
+            var result = await this.PersonalInfoValidator(
+                employee.Login, employee.Password,
+                employee.FirstName, employee.LastName,
+                employee.Patronymic, employee.Gender,
+                employee.BirthDate, employee.Education,
+                employee.Specialization, employee.Qualification,
+                employee.MaritalStatus, employee.Address,
+                employee.PhoneNumber, employee.Email);
+            if(result)
+            {
+                user.Login = employee.Login;
+                user.Password = employee.Password;
+                user.FirstName = employee.FirstName;
+                user.LastName = employee.LastName;
+                user.Patronymic = employee.Patronymic;
+                user.Gender = employee.Gender;
+                user.BirthDate = employee.BirthDate;
+                user.Education = employee.Education;
+                user.Specialization = employee.Specialization;
+                user.Qualification = employee.Qualification;
+                user.MaritalStatus = employee.MaritalStatus;
+                user.Address = employee.Address;
+                user.PhoneNumber = employee.PhoneNumber;
+                user.Email = employee.Email;
+
+                emploeeRepository.UpdateEmployee(user);
+            } 
         }
+    }
+
+    /// <summary>
+    /// Verifying the validity of user data.
+    /// </summary>
+    /// <param name="login">User login.</param>
+    /// <param name="password">User password.</param>
+    /// <param name="firstName">User first name.</param>
+    /// <param name="lastName">User last name.</param>
+    /// <param name="patronymic">User patronymic.</param>
+    /// <param name="gender">User gender.</param>
+    /// <param name="birthDate">User birthday.</param>
+    /// <param name="education">User education.</param>
+    /// <param name="specialization">User specialization.</param>
+    /// <param name="qualification">User qualification.</param>
+    /// <param name="maritalStatus">User marital status.</param>
+    /// <param name="address">User address.</param>
+    /// <param name="phoneNumber">User phone number.</param>
+    /// <param name="email">User email addess.</param>
+    /// <returns></returns>
+    public async Task<bool> PersonalInfoValidator(
+        string login, string password, 
+        string? firstName, string? lastName,
+        string? patronymic, Gender? gender, 
+        DateTime? birthDate, string? education,
+        string? specialization, string? qualification, 
+        int? maritalStatus, string? address,
+        string? phoneNumber, string? email)
+    {
+        if (string.IsNullOrWhiteSpace(firstName) ||
+            string.IsNullOrWhiteSpace(lastName) ||
+            string.IsNullOrWhiteSpace(patronymic) ||
+            gender == null || birthDate == null ||
+            string.IsNullOrWhiteSpace(education) ||
+            string.IsNullOrWhiteSpace(specialization) ||
+            string.IsNullOrWhiteSpace(qualification) ||
+            maritalStatus == null ||
+            string.IsNullOrWhiteSpace(address) ||
+            string.IsNullOrWhiteSpace(phoneNumber) ||
+            string.IsNullOrWhiteSpace(email))
+        {
+            return false;
+        }
+        return true;
     }
 
     public async Task EditPersonalInfoAsync() { }

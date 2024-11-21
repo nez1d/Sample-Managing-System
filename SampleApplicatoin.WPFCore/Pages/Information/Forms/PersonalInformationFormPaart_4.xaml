@@ -23,7 +23,8 @@
                 <TextBlock Text="contact you."
                            Style="{StaticResource InformationPageFormSubtitle}"
                            Margin="0 5 0 0"/>
-                <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Left">
                     <!-- Email Text Box -->
                     <TextBox x:Name="EmailInformatinoTextBox"
                              Tag="Email"

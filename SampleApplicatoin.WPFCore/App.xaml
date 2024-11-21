@@ -94,7 +94,7 @@
         <!--    Menu Button    -->
         <Style x:Key="menuButton" TargetType="RadioButton">
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Margin" Value="30 10 30 0"/>
+            <Setter Property="Margin" Value="20 10 20 0"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#000"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -391,6 +391,24 @@
             <Setter Property="Opacity" Value="0.6"/>
         </Style>
 
+
+        <!-- Home Page -->
+
+        <Style x:Key="HomeText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#000"/>
+            <Setter Property="FontFamily" Value="Poppins"/>
+        </Style>
+        
+        <Style x:Key="HomeTitleText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#000"/>
+            <Setter Property="FontFamily" Value="Inter"/>
+        </Style>
 
     </Application.Resources>
 </Application>

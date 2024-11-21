@@ -2,7 +2,6 @@
 using SampleApplicatoin.Persistence;
 using SampleApplicatoin.WPFCore.Models.Constants;
 using System.Windows.Controls;
-using System.Windows.Forms;
 
 namespace SampleApplicatoin.WPFCore.Pages.Home;
 
@@ -19,7 +18,7 @@ public partial class HomePage : Page
 
     private async void Grid_Loaded(object sender, System.Windows.RoutedEventArgs e)
     {
-        var result = employeeService.CheckPersonalInfoAsync(AuthConstants.Login);
+        /*var result = employeeService.CheckPersonalInfoAsync(AuthConstants.Login);
         if (result.Result)
         {
             var user = await employeeService.GetUserNameAsync(AuthConstants.Login);
@@ -29,9 +28,8 @@ public partial class HomePage : Page
             HomeName2TextBlock.Visibility = System.Windows.Visibility.Visible;
         }
         else
-
         {
             HomeNameErrorTextBlock.Visibility = System.Windows.Visibility.Visible;
-        }
+        }*/
     }
 }

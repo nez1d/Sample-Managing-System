@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SampleApplicatoin.Domain.Models;
 
 namespace SampleApplicatoin.Persistence.Repository;
@@ -25,16 +26,11 @@ public class EmploeeRepository
         return null;
     }
 
-    public async Task<bool> Update(Employee emploee)
+    public async Task UpdateEmployee(Employee emploee)
     {
-        var user = await GetByLogin(emploee.Login);
-        if(user != null)
-        {
-            context.Emploees.Update(emploee);
-            await context.SaveChangesAsync();
-            return true;
-        }
-        return false;
+        context.Emploees.Update(emploee);
+        context.Entry(emploee).State = EntityState.Modified;
+        context.SaveChanges();
     }
 
     public async Task Delete(Guid id)

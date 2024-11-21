@@ -18,8 +18,8 @@ public class Employee
     public int? MaritalStatus { get; set; }
     public string? Address { get; set; }
     public string? PhoneNumber { get; set; }
+    public string? Email { get; set; }
     public string? PhotoPath { get; set; }
     public bool? IsValidInfo { get; set; }
-    /*public Salary Salary { get; set; }
-    public Guid SalaryId { get; set; }*/
+    public Checkout? Checkout { get; set; }
 }

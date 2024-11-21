@@ -22,6 +22,59 @@ namespace SampleApplicatoin.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("SampleApplicatoin.Domain.Models.Activity", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DaysWorked")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DaysWorkedInAMonth")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DaysWorkedInAWeek")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Fines")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FinesCounter")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SalaryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("SalaryId");
+
+                    b.ToTable("Activities");
+                });
+
+            modelBuilder.Entity("SampleApplicatoin.Domain.Models.Checkout", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("BasePrsonalInfo")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Passport")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Checkouts");
+                });
+
             modelBuilder.Entity("SampleApplicatoin.Domain.Models.Employee", b =>
                 {
                     b.Property<Guid>("Id")
@@ -34,7 +87,13 @@ namespace SampleApplicatoin.Persistence.Migrations
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("CheckoutId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Education")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -76,6 +135,8 @@ namespace SampleApplicatoin.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CheckoutId");
 
                     b.ToTable("Emploees");
                 });
@@ -164,6 +225,32 @@ namespace SampleApplicatoin.Persistence.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.ToTable("Salaries");
+                });
+
+            modelBuilder.Entity("SampleApplicatoin.Domain.Models.Activity", b =>
+                {
+                    b.HasOne("SampleApplicatoin.Domain.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SampleApplicatoin.Domain.Models.Salary", "Salary")
+                        .WithMany()
+                        .HasForeignKey("SalaryId");
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Salary");
+                });
+
+            modelBuilder.Entity("SampleApplicatoin.Domain.Models.Employee", b =>
+                {
+                    b.HasOne("SampleApplicatoin.Domain.Models.Checkout", "Checkout")
+                        .WithMany()
+                        .HasForeignKey("CheckoutId");
+
+                    b.Navigation("Checkout");
                 });
 
             modelBuilder.Entity("SampleApplicatoin.Domain.Models.Passport", b =>

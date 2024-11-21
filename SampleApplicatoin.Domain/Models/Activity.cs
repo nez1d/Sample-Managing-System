@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata;
-
-namespace SampleApplicatoin.Domain.Models;
+﻿namespace SampleApplicatoin.Domain.Models;
 
 public class Activity
 {

@@ -15,7 +15,7 @@ namespace SampleApplicatoin.WPFCore.Pages.Account.Menu
             accountMenuBackBtn.Visibility = Visibility.Hidden;
         }
 
-        private void accountMenuPersonalInforamtionBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void accountMenuPersonalInforamtionBtn_Click(object sender, RoutedEventArgs e)
         {
             gridRow_2.Height = new GridLength(0);
             gridRow_3.Height = new GridLength(0);

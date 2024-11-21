@@ -1,23 +1,35 @@
-﻿using SampleApplicatoin.WPFCore.Pages.Main;
-using SampleApplicatoin.WPFCore.Pages.Main.Information;
+﻿using SampleApplicatoin.WPFCore.Pages.Main.Information;
 using System.Windows;
 using System.Windows.Input;
 using SampleApplicatoin.WPFCore.Pages.Salary;
 using SampleApplicatoin.WPFCore.Pages.Notifications;
 using SampleApplicatoin.WPFCore.Pages.Account.Menu;
 using SampleApplicatoin.WPFCore.Pages.Home;
+using SampleApplication.Appliaction.Services;
+using SampleApplicatoin.Persistence;
+using SampleApplicatoin.WPFCore.Models.Constants;
 
 namespace SampleApplicatoin.WPF.Forms
 {
     public partial class MainForm : Window
     {
+        private readonly ApplicationDbContext applicationDbContext;
+        private readonly EmployeeService employeeService;
         public MainForm()
         {
+            applicationDbContext = new ApplicationDbContext();
+            employeeService = new EmployeeService(applicationDbContext);
             InitializeComponent();
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            var valid = employeeService.CheckPersonalInfoAsync(AuthConstants.Login);
+/*            if (valid.Result)
+            {
+
+            }*/
+
             CenterMenuFrame.Navigate(new HomePage());
         }
 
@@ -49,7 +61,7 @@ namespace SampleApplicatoin.WPF.Forms
 
         private void homeMenuBtn_Click(object sender, RoutedEventArgs e)
         {
-            CenterMenuFrame.Navigate(new SampleApplicatoin.WPFCore.Pages.Home.HomePage());
+            CenterMenuFrame.Navigate(new HomePage());
         }
 
         private void profileMenuBtn_Click(object sender, RoutedEventArgs e)

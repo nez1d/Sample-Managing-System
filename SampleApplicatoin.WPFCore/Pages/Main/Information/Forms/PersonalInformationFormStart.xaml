@@ -15,7 +15,6 @@
                 <TextBlock Text="Signup Request"
                    Style="{StaticResource InformationPageFormTitle}"/>
                 <StackPanel Orientation="Vertical">
-                    <!-- Gender ComboBox -->
                     <TextBlock Text="To start working with the application, you need to pass verification!"
                                Style="{StaticResource InformationPageFormSubtitle}"
                                Margin="0 30 0 0"/>

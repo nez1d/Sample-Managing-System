@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SampleApplicatoin.WPFCore.ViewModels;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
@@ -12,9 +13,9 @@ namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
 
         private void SendRequestButtonPart_4_Click(object sender, RoutedEventArgs e)
         {
-            InformationPage.model.Email = EmailInformatinoTextBox.Text;
-            InformationPage.model.PhoneNumber = PhoneInformatinoTextBox.Text;
-            InformationPage.model.Address = AddressInformatinoTextBox.Text;
+            EmploeeViewModel.Email = EmailInformatinoTextBox.Text;
+            EmploeeViewModel.Address = AddressInformatinoTextBox.Text;
+            EmploeeViewModel.PhoneNumber = PhoneInformatinoTextBox.Text;
             this.NavigationService.Navigate(new PersonalInformationFormPaart_5());
         }
     }

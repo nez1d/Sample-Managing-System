@@ -11,5 +11,6 @@
         public string Number { get; set; }
         public string IssueByWhrom { get; set; }
         public DateTime DateOfIssue { get; set; }
+        public Employee Employee { get; set; }
     }
 }

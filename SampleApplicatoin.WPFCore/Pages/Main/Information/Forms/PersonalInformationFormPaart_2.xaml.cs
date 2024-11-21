@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SampleApplicatoin.WPFCore.ViewModels;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
@@ -12,7 +13,7 @@ namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
 
         private void SendRequestButtonPart_2_Click(object sender, RoutedEventArgs e)
         {
-            InformationPage.model.Gender = GenderInformatinoComboBox.Text;
+            EmploeeViewModel.Gender = GenderInformatinoComboBox.Text;
             this.NavigationService.Navigate(new PersonalInformationFormPaart_3());
         }
     }

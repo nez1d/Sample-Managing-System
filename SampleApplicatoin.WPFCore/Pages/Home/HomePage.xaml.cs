@@ -1,28 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using SampleApplication.Appliaction.Services;
+using SampleApplicatoin.Persistence;
+using SampleApplicatoin.WPFCore.Models.Constants;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Forms;
 
-namespace SampleApplicatoin.WPFCore.Pages.Home
+namespace SampleApplicatoin.WPFCore.Pages.Home;
+
+public partial class HomePage : Page
 {
-    /// <summary>
-    /// Логика взаимодействия для HomePage.xaml
-    /// </summary>
-    public partial class HomePage : Page
+    private readonly ApplicationDbContext applicationDbContext;
+    private readonly EmployeeService employeeService;
+    public HomePage()
     {
-        public HomePage()
+        applicationDbContext = new ApplicationDbContext();
+        employeeService = new EmployeeService(applicationDbContext);
+        InitializeComponent();
+    }
+
+    private async void Grid_Loaded(object sender, System.Windows.RoutedEventArgs e)
+    {
+        var result = employeeService.CheckPersonalInfoAsync(AuthConstants.Login);
+        if (result.Result)
         {
-            InitializeComponent();
+            var user = await employeeService.GetUserNameAsync(AuthConstants.Login);
+            HomeName1TextBlock.Visibility = System.Windows.Visibility.Visible;
+            HomeNameTextBlock.Visibility = System.Windows.Visibility.Visible;
+            HomeNameTextBlock.Text = $"{user}";
+            HomeName2TextBlock.Visibility = System.Windows.Visibility.Visible;
+        }
+        else
+
+        {
+            HomeNameErrorTextBlock.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

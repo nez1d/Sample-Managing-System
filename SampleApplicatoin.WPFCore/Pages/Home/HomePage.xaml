@@ -8,7 +8,8 @@
       d:DesignHeight="1000" d:DesignWidth="900"
       Title="HomePage">
 
-    <Grid Background="#F6F6F6">
+    <Grid Background="#F6F6F6"
+          Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.4*"/>
             <ColumnDefinition Width="*"/>
@@ -23,65 +24,61 @@
         <Border Grid.ColumnSpan="2" Margin="25 0">
             <StackPanel>
                 <TextBlock Text="Home" Margin="0 30"
-                       FontSize="24" FontWeight="SemiBold"/>
-                <!-- <Border CornerRadius="10" x:Name="notifBorder"
-                    Background="#5AE190" Height="140"
-                    Padding="20 10" HorizontalAlignment="Stretch">
-                <StackPanel>
-                    <Grid>
-                        <StackPanel HorizontalAlignment="Left">
-                            <TextBlock FontSize="18" FontWeight="SemiBold" Opacity="0.8" 
-                                       Margin="0 10 0 10"
-                                       Text="Добро Пожаловать в Management System!"/>
-                            <TextBlock FontSize="18" FontWeight="SemiBold" Opacity="0.8" Margin="0 0 0 10"
-                                       Text="Если у вас возникли вопросы, вы можете задать их нам в меню “Помощь”!"/>
-                            <TextBlock FontSize="18" FontWeight="SemiBold" Opacity="0.8"
-                                       Text="Наша команда ответит вам как можно скорее!"/>
-                        </StackPanel>
-                        <StackPanel HorizontalAlignment="Right" Margin="10 10 0 0">
-                            <Button Click="Button_Click"
-                                Style="{StaticResource closeNotificationBtn}">
-                                <Image Source="/Source/Images/Button/Close.png"
-                                Width="14" Height="14" Margin="0 0 7.5 0"/>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
+                           FontSize="24" FontWeight="SemiBold"/>
                 
-            </Border> -->
             </StackPanel>
         </Border>
 
         <Border Margin="15 15 0 15"
-            BorderThickness="1"
-            BorderBrush="#E3E7EE"
-            CornerRadius="10"
-            Background="#fff" 
-            Grid.Row="1">
-            <StackPanel>
-
+                BorderThickness="1"
+                BorderBrush="#E3E7EE"
+                CornerRadius="10"
+                Background="#fff" 
+                Grid.Row="1">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <TextBlock x:Name="HomeName1TextBlock"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="10"
+                           Visibility="Hidden">Добро пожаловать</TextBlock>
+                <TextBlock x:Name="HomeNameTextBlock"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0 10"
+                           Visibility="Hidden">Max Focusov</TextBlock>
+                <TextBlock x:Name="HomeName2TextBlock"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0 10"
+                           Visibility="Hidden">!</TextBlock>
+                <TextBlock x:Name="HomeNameErrorTextBlock"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="10"
+                           Visibility="Hidden"
+                           Foreground="Red">Пройдите верификацию, что бы пользоваться приложением!</TextBlock>
             </StackPanel>
-
         </Border>
 
         <Border Grid.Row="1" 
-            Grid.Column="2"
-            Margin="15"
-            BorderThickness="1"
-            BorderBrush="#E3E7EE"
-            CornerRadius="10"
-            Background="#fff">
+                Grid.Column="2"
+                Margin="15"
+                BorderThickness="1"
+                BorderBrush="#E3E7EE"
+                CornerRadius="10"
+                Background="#fff">
             <StackPanel>
             </StackPanel>
         </Border>
 
         <Border Grid.Row="2" 
-            Grid.ColumnSpan="2"
-            Margin="15 0 15 15"
-            BorderThickness="1"
-            BorderBrush="#E3E7EE"
-            CornerRadius="10"
-            Background="#fff" >
+                Grid.ColumnSpan="2"
+                Margin="15 0 15 15"
+                BorderThickness="1"
+                BorderBrush="#E3E7EE"
+                CornerRadius="10"
+                Background="#fff">
         </Border>
     </Grid>
 </Page>

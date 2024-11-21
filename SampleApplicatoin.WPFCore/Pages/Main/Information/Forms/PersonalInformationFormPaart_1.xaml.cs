@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using SampleApplicatoin.WPFCore.ViewModels;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
@@ -12,11 +14,11 @@ namespace SampleApplicatoin.WPFCore.Pages.Main.Information.Forms
 
         private void SendRequestButtonPart_1_Click(object sender, RoutedEventArgs e)
         {
-            InformationPage.model.FirstName = FirstNameInformatinoTextBox.Text;
-            InformationPage.model.LastName = LastNameInformatinoTextBox.Text;
-            InformationPage.model.Patronymic = PatronymicInformatinoTextBox.Text;
-            /*InformationPage.model.BirthDate = Convert.ToDateTime(BirthDateInformatinoTextBox.Text);*/
-            InformationPage.model.MaritalStatus = MaterialStatusInformatinoTextBox.Text;
+            EmploeeViewModel.FirstName = FirstNameInformatinoTextBox.Text;
+            EmploeeViewModel.LastName = LastNameInformatinoTextBox.Text;
+            EmploeeViewModel.Patronymic = PatronymicInformatinoTextBox.Text;
+            EmploeeViewModel.BirthDate = /*Convert.ToDateTime(BirthDateInformatinoTextBox.Text);*/ DateTime.UtcNow;
+            EmploeeViewModel.MaritalStatus = /*Convert.ToInt16(MaterialStatusInformatinoTextBox.Text);*/ 1;
             this.NavigationService.Navigate(new PersonalInformationFormPaart_2());
         }
     }
